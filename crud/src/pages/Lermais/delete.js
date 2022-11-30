@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../../components/Header/header";
-import './lermais.css';
-function Lermais() {
+import './delete.css';
+function Delete() {
     return(
         <div>
             <Header/>
@@ -20,4 +20,4 @@ function Lermais() {
     )
 }
 
-export default Lermais
+export default Delete
