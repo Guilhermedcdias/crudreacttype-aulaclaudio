@@ -9,7 +9,7 @@ app.use(json());
 app.use(cors())
 app.use(router);
 
-app.listen(4512, async () => {
+app.listen(8030, async () => {
   await db.sync();
-  console.log(`App ${process.env.PROJECT_NAME} Running at 4512!`);
+  console.log(`App ${process.env.PROJECT_NAME} Running at 8030!`);
 });

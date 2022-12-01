@@ -2,10 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Header from "../../components/Header/header";
 import "./post.css";
+import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import axios from "axios";
+import crud from "../../services/axios";
+
+
 const validationPost = yup
   .object()
   .shape({
@@ -25,6 +29,7 @@ const validationPost = yup
   .required();
 
 function Post() {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -32,8 +37,23 @@ function Post() {
   } = useForm({
     resolver: yupResolver(validationPost),
   });
-  const addpost = (data) => console.log(data);
-
+  const addpost = (data) => {
+    try {
+      crud.post("/createuser", {
+          nome: data.name,
+          ra: data.ra,
+          tel: data.tel,
+        })
+        .then((resp) => {
+          if (resp) {
+            navigate("/");
+          }
+        });
+        console.log(data)
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
     <div>
       <Header />
@@ -64,7 +84,7 @@ function Post() {
             </div>
 
             <div className="btn-post">
-                <button type="submit">Enviar</button>
+              <button type="submit">Enviar</button>
             </div>
           </form>
         </div>
