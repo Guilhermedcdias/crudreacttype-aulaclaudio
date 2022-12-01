@@ -7,7 +7,7 @@ Um crud simples, feito em react, com back-end em Typescript e banco de dados em 
 
 Abaixo uma demo simples de como utilizar
 
-https://youtu.be/UCfFQkai1vs
+https://youtu.be/sp3MwCi_i8o
 ## Deploy
 
 Para fazer o deploy desse projeto rode
